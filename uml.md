@@ -26,22 +26,3 @@
 > **Legende:** `-` = private, `+` = public
 
 ---
-
-## Mermaid-Diagramm
-
-```mermaid
-classDiagram
-    class Game {
-        -String spieler
-        -int spielerVersuche
-        -int guess
-        -int zielZahl = random
-        -int maxVersuche
-        -int range
-        -String hint
-        +zahlRaten() void
-        +hintGeben(zielZahl int, guess int) void
-        +spielerVersuche(spielerVersuche int) void
-        +gameResult() void
-    }
-```
