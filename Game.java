@@ -8,5 +8,6 @@ public class Game {
     private int range;
     private String hint;
 
-    
+        
+    }
 }
