@@ -1,5 +1,5 @@
 public class Spieler {
-   
+   //TEST
  
     private String name;
     private int versuche;
