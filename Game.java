@@ -16,6 +16,18 @@ public class Game {
         this.spieler = spieler;
         this.difficulty = difficulty;
     }
+
+     public static int askDifficultyNumber() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Schwierigkeit waehlen:");
+        System.out.println("1 = LEICHT");
+        System.out.println("2 = MITTEL");
+        System.out.println("3 = SCHWER");
+        System.out.print("Deine Wahl: ");
+
+        return scanner.nextInt();
+    }
  
     public void spielen() {
         Scanner scanner = new Scanner(System.in);
@@ -61,9 +73,11 @@ public class Game {
     }
  
     public static void main(String[] args) {
+
+        int schwierigkeitNummer = askDifficultyNumber();
         
         Spieler spieler = new Spieler("Anes");
-        Difficulty difficulty = Difficulty.vonNummer(1);
+        Difficulty difficulty = Difficulty.vonNummer(schwierigkeitNummer);
 
         Game spiel = new Game(spieler, difficulty);
         spiel.spielen();
