@@ -1,0 +1,15 @@
+# Kompilierte Java-Klassen (Build-Artefakte, nicht einchecken)
+*.class
+
+# Build-Ordner
+bin/
+out/
+build/
+target/
+
+# Logs / temporaer
+*.log
+
+# OS / Editor
+.DS_Store
+Thumbs.db
