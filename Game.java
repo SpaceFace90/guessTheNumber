@@ -11,17 +11,25 @@ public class Game {
     private Difficulty difficulty;
 
 
-    public Game(Spieler spieler, Difficulty difficulty){
+    public Game(Spieler spieler){
 
         this.spieler = spieler;
-        this.difficulty = difficulty;
     }
  
     public void spielen() {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
  
-        System.out.println("Schwierigkeit waehlen (LEICHT, MITTEL, SCHWER): ");
+        System.out.println("Schwierigkeit waehlen (1 = LEICHT, 2 = MITTEL, 3 = SCHWER): ");
+
+        while (difficulty == null) {
+            int wahl = scanner.nextInt();
+            if (wahl == 1 || wahl == 2 || wahl == 3) {
+                difficulty = Difficulty.vonNummer(wahl);
+            } else {
+                System.out.println("Ungueltige Wahl. Bitte 1, 2 oder 3 eingeben: ");
+            }
+        }
  
         zielZahl = random.nextInt(difficulty.getRange()) + 1;
  
@@ -63,9 +71,8 @@ public class Game {
     public static void main(String[] args) {
         
         Spieler spieler = new Spieler("Anes");
-        Difficulty difficulty = Difficulty.vonNummer(1);
 
-        Game spiel = new Game(spieler, difficulty);
+        Game spiel = new Game(spieler);
         spiel.spielen();
     }
 }
