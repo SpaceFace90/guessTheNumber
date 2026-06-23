@@ -3,6 +3,7 @@ public class Spieler {
  
     private String name;
     private int versuche;
+    private int guess;
  
  
     public Spieler(String name){
@@ -12,15 +13,23 @@ public class Spieler {
     }
  
     public void versucheErhoehen() {
-        versuche++;
+        this.versuche++;
     }
  
     public int getVersuche(){
         return versuche;
     }
  
-    String getName(){
+    public String getName(){
         return name;
+    }
+
+    public int getGuess(){
+        return guess;
+    }
+
+    public void setGuess(int newGuess){
+        guess = newGuess;
     }
  
 }

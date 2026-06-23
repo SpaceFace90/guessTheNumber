@@ -5,10 +5,11 @@ public class Game {
 
     // private String spieler; #kommt von Spieler
     // private int spielerVersuche;
-    private int guess;
+    // private int guess;
+    //private int maxVersuche;
+    //private int range;
+    private Spieler spieler;
     private int zielZahl;
-    private int maxVersuche;
-    private int range;
     private String hint;
     private Difficulty difficulty;
    
@@ -25,7 +26,7 @@ public class Game {
         maxVersuche = 5;
         range = 100;
         zielZahl = random.nextInt(range) + 1;
-        spielerVersuche = 0;
+       //spielerVersuche = 0;
         guess = 0;
 
         System.out.println("Ich denke an eine Zahl zwischen 1 und " + range + ".");
