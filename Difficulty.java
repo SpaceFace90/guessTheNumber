@@ -28,6 +28,7 @@ public class Difficulty {
     }
 
     public static Difficulty valueOf(String name) {
+        
         switch (name) {
             case "LEICHT":
                 return LEICHT;

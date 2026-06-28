@@ -11,9 +11,10 @@ public class Game {
     private Difficulty difficulty;
 
 
-    public Game(Spieler spieler){
+     public Game(Spieler spieler, Difficulty difficulty){
 
         this.spieler = spieler;
+        this.difficulty = difficulty;
     }
 
      public static int askDifficultyNumber() {
@@ -32,7 +33,7 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
  
-        System.out.println("Schwierigkeit waehlen (1 = LEICHT, 2 = MITTEL, 3 = SCHWER): ");
+        //System.out.println("Schwierigkeit waehlen (1 = LEICHT, 2 = MITTEL, 3 = SCHWER): ");
 
         while (difficulty == null) {
             int wahl = scanner.nextInt();
@@ -82,16 +83,15 @@ public class Game {
  
     public static void main(String[] args) {
 
-        //int schwierigkeitNummer = askDifficultyNumber();
+        int schwierigkeitNummer = askDifficultyNumber();
         
         Spieler spieler = new Spieler("Anes");
 
-        //Difficulty difficulty = Difficulty.vonNummer(schwierigkeitNummer);
+        Difficulty difficulty = Difficulty.vonNummer(schwierigkeitNummer);
 
 
-        Game spiel = new Game(spieler);
+        Game spiel = new Game(spieler, difficulty);
         spiel.spielen();
     }
 }
- 
  
