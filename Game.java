@@ -30,10 +30,12 @@ public class Game {
     }
  
     public void spielen() {
+
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
+
+        zielZahl = random.nextInt(schwierigkeit.getRange()) + 1;
  
-        //System.out.println("Schwierigkeit waehlen (1 = LEICHT, 2 = MITTEL, 3 = SCHWER): ");
 
         while (schwierigkeit == null) {
             int wahl = scanner.nextInt();
@@ -44,18 +46,22 @@ public class Game {
             }
         }
  
-        zielZahl = random.nextInt(schwierigkeit.getRange()) + 1;
- 
-        //spielerVersuche = 0;
-        //guess = 0;
- 
+        
+        System.out.println();
+        System.out.println("Spiel startet!");
         System.out.println("Ich denke an eine Zahl zwischen 1 und " + schwierigkeit.getRange() + ".");
         System.out.println("Du hast " + schwierigkeit.getMaxVersuche() + " Versuche.");
+        System.out.println();
  
         while (true) {
-            System.out.print("Dein Tipp: ");
+
+            System.out.println("Versuch " + (spieler.getVersuche() + 1) + " von " + schwierigkeit.getMaxVersuche());
+            System.out.print("Dein Tipp: ");1
+            
+
             spieler.setGuess(scanner.nextInt());
             spieler.versucheErhoehen();
+            System.out.println();
  
             if (spieler.getGuess() == zielZahl) {
                 System.out.println("Richtig! Du hast " + spieler.getVersuche() + " Versuche gebraucht.");
@@ -63,8 +69,11 @@ public class Game {
             }
  
             if (spieler.getVersuche() >= schwierigkeit.getMaxVersuche()) {
-                System.out.println("You Lose, du hast die maximale Anzahl von " + schwierigkeit.getMaxVersuche() + " gebraucht.\n" +
-                        "Die richtige Zahl war " + zielZahl);
+
+                System.out.println("You Lose!");
+                System.out.println("du hast die maximale Anzahl von " + schwierigkeit.getMaxVersuche() + " Versuchen erreicht.");
+            
+                System.out.println("Die richtige Zahl war " + zielZahl + ".");
                 break;
             }
  
@@ -75,7 +84,9 @@ public class Game {
             else {
                 hint = "Zu gross";
             }
+
             System.out.println(hint);
+            System.out.println();
         }
  
         scanner.close();
