@@ -1,15 +1,15 @@
 
-public class Difficulty {
+public class Schwierigkeit {
 
-    public static final Difficulty LEICHT = new Difficulty("LEICHT", 50, 8);
-    public static final Difficulty MITTEL = new Difficulty("MITTEL", 100, 5);
-    public static final Difficulty SCHWER = new Difficulty("SCHWER", 200, 4);
+    public static final Schwierigkeit LEICHT = new Schwierigkeit("LEICHT", 50, 8);
+    public static final Schwierigkeit MITTEL = new Schwierigkeit("MITTEL", 100, 5);
+    public static final Schwierigkeit SCHWER = new Schwierigkeit("SCHWER", 200, 4);
 
     private final String name;
     private final int range;
     private final int maxVersuche;
 
-    private Difficulty(String name, int range, int maxVersuche) {
+    private Schwierigkeit(String name, int range, int maxVersuche) {
         this.name = name;
         this.range = range;
         this.maxVersuche = maxVersuche;
@@ -27,7 +27,7 @@ public class Difficulty {
         return name;
     }
 
-    public static Difficulty valueOf(String name) {
+    public static Schwierigkeit valueOf(String name) {
         
         switch (name) {
             case "LEICHT":
@@ -41,7 +41,7 @@ public class Difficulty {
         }
     }
 
-    public static Difficulty vonNummer(int nummer) {
+    public static Schwierigkeit vonNummer(int nummer) {
         switch (nummer) {
             case 1:
                 return LEICHT;

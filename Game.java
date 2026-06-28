@@ -8,13 +8,13 @@ public class Game {
     private Spieler spieler;
     private int zielZahl;
     private String hint;
-    private Difficulty difficulty;
+    private Schwierigkeit schwierigkeit;
 
 
-     public Game(Spieler spieler, Difficulty difficulty){
+     public Game(Spieler spieler, Schwierigkeit schwierigkeit){
 
         this.spieler = spieler;
-        this.difficulty = difficulty;
+        this.schwierigkeit = schwierigkeit;
     }
 
      public static int askDifficultyNumber() {
@@ -35,22 +35,22 @@ public class Game {
  
         //System.out.println("Schwierigkeit waehlen (1 = LEICHT, 2 = MITTEL, 3 = SCHWER): ");
 
-        while (difficulty == null) {
+        while (schwierigkeit == null) {
             int wahl = scanner.nextInt();
             if (wahl == 1 || wahl == 2 || wahl == 3) {
-                difficulty = Difficulty.vonNummer(wahl);
+                schwierigkeit = Schwierigkeit.vonNummer(wahl);
             } else {
                 System.out.println("Ungueltige Wahl. Bitte 1, 2 oder 3 eingeben: ");
             }
         }
  
-        zielZahl = random.nextInt(difficulty.getRange()) + 1;
+        zielZahl = random.nextInt(schwierigkeit.getRange()) + 1;
  
         //spielerVersuche = 0;
         //guess = 0;
  
-        System.out.println("Ich denke an eine Zahl zwischen 1 und " + difficulty.getRange() + ".");
-        System.out.println("Du hast " + difficulty.getMaxVersuche() + " Versuche.");
+        System.out.println("Ich denke an eine Zahl zwischen 1 und " + schwierigkeit.getRange() + ".");
+        System.out.println("Du hast " + schwierigkeit.getMaxVersuche() + " Versuche.");
  
         while (true) {
             System.out.print("Dein Tipp: ");
@@ -62,8 +62,8 @@ public class Game {
                 break;
             }
  
-            if (spieler.getVersuche() >= difficulty.getMaxVersuche()) {
-                System.out.println("You Lose, du hast die maximale Anzahl von " + difficulty.getMaxVersuche() + " gebraucht.\n" +
+            if (spieler.getVersuche() >= schwierigkeit.getMaxVersuche()) {
+                System.out.println("You Lose, du hast die maximale Anzahl von " + schwierigkeit.getMaxVersuche() + " gebraucht.\n" +
                         "Die richtige Zahl war " + zielZahl);
                 break;
             }
@@ -83,14 +83,13 @@ public class Game {
  
     public static void main(String[] args) {
 
-        int schwierigkeitNummer = askDifficultyNumber();
+        int schwierigkeitsNummer = askDifficultyNumber();
         
+        Schwierigkeit schwierigkeit = Schwierigkeit.vonNummer(schwierigkeitsNummer);
+
         Spieler spieler = new Spieler("Anes");
 
-        Difficulty difficulty = Difficulty.vonNummer(schwierigkeitNummer);
-
-
-        Game spiel = new Game(spieler, difficulty);
+        Game spiel = new Game(spieler, schwierigkeit);
         spiel.spielen();
     }
 }
