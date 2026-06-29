@@ -56,7 +56,7 @@ public class Game {
         while (true) {
 
             System.out.println("Versuch " + (spieler.getVersuche() + 1) + " von " + schwierigkeit.getMaxVersuche());
-            System.out.print("Dein Tipp: ");1
+            System.out.print("Dein Tipp: ");
             
 
             spieler.setGuess(scanner.nextInt());
