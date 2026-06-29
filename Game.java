@@ -26,7 +26,19 @@ public class Game {
         System.out.println("3 = SCHWER");
         System.out.print("Deine Wahl: ");
 
-        return scanner.nextInt();
+        int wahl = 0;
+
+    while (wahl < 1 || wahl > 3) {
+        
+        wahl = scanner.nextInt();
+
+        if (wahl < 1 || wahl > 3) {
+            System.out.println("Ungueltige Wahl. Bitte 1, 2 oder 3 eingeben.");
+        }
+    }
+
+
+        return wahl;
     }
  
     public void spielen() {
@@ -56,7 +68,7 @@ public class Game {
         while (true) {
 
             System.out.println("Versuch " + (spieler.getVersuche() + 1) + " von " + schwierigkeit.getMaxVersuche());
-            System.out.print("Dein Tipp: ");1
+            System.out.print("Dein Tipp: ");
             
 
             spieler.setGuess(scanner.nextInt());

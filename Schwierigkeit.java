@@ -27,19 +27,6 @@ public class Schwierigkeit {
         return name;
     }
 
-    public static Schwierigkeit valueOf(String name) {
-        
-        switch (name) {
-            case "LEICHT":
-                return LEICHT;
-            case "MITTEL":
-                return MITTEL;
-            case "SCHWER":
-                return SCHWER;
-            default:
-                throw new IllegalArgumentException("Unbekannte Schwierigkeit: " + name);
-        }
-    }
 
     public static Schwierigkeit vonNummer(int nummer) {
         switch (nummer) {
@@ -51,6 +38,7 @@ public class Schwierigkeit {
                 return SCHWER;
             default:
                 throw new IllegalArgumentException("Unbekannte Schwierigkeit: " + nummer);
+               
         }
     }
 }
